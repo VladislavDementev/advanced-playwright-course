@@ -1,0 +1,62 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://ilarionhalushka.github.io/jekyll-ecommerce-demo/');
+  await page.getByRole('link', { name: 'Gavin the Tiger' }).click();
+  await page.getByRole('button', { name: 'Add to cart' }).click();
+  await page.getByRole('button', { name: 'Checkout' }).click();
+  await page.getByRole('textbox', { name: 'Full name' }).click();
+  await page.getByRole('textbox', { name: 'Full name' }).fill('Vladislav');
+  await page.getByRole('textbox', { name: 'Full name' }).press('Tab');
+  await page.getByRole('textbox', { name: 'Email' }).fill('random@mail.com');
+  await page.getByRole('textbox', { name: 'Email' }).press('Tab');
+  await page.getByRole('textbox', { name: 'Street address' }).fill('freedom');
+  await page.getByRole('textbox', { name: 'Street address' }).press('Tab');
+  await page.getByRole('textbox', { name: 'Apt/Suite' }).click();
+  await page.getByRole('textbox', { name: 'Apt/Suite' }).press('NumLock');
+  await page.getByRole('textbox', { name: 'Apt/Suite' }).fill('15');
+  await page.getByRole('textbox', { name: 'Apt/Suite' }).press('Tab');
+  await page.getByRole('textbox', { name: 'City' }).fill('Bangkok');
+  await page.getByRole('textbox', { name: 'City' }).press('Tab');
+  await page.getByRole('textbox', { name: 'Country' }).click();
+  await page.getByRole('textbox', { name: 'Country' }).fill('Thailand');
+  await page.getByRole('textbox', { name: 'Province/State' }).click();
+  await page.getByRole('textbox', { name: 'Province/State' }).fill('Bangkok');
+  await page.getByRole('textbox', { name: 'Postal/ZIP code' }).click();
+  await page.getByRole('textbox', { name: 'Postal/ZIP code' }).fill('331122');
+  await page.getByText('1 Billing Full name Email').click();
+  await page.getByRole('button', { name: 'Continue to payment' }).click();
+  await page.getByRole('textbox', { name: 'Country' }).click();
+  await page.getByText('United States').click();
+  await page.locator('.snipcart-form__field.snipcart-form__cell--large > .snipcart-typeahead > .snipcart-typeahead__content > .snipcart-typeahead__select > .snipcart-typeahead__input > .snipcart-form__select-wrapper > .snipcart-textbox').click();
+  //we won't to repair this locator
+  await page.getByText('Alabama').click();
+  await page.getByRole('button', { name: 'Continue to payment' }).click();
+  await page.locator('iframe').contentFrame().getByRole('textbox', { name: 'Card number' }).click();
+  await page.locator('iframe').contentFrame().getByRole('textbox', { name: 'Card number' }).fill('4242 4242 4242 4242');
+  await page.locator('iframe').contentFrame().getByRole('textbox', { name: 'MM/YY' }).click();
+  await page.locator('iframe').contentFrame().getByRole('textbox', { name: 'MM/YY' }).fill('09/32');
+  await page.locator('iframe').contentFrame().getByRole('textbox', { name: 'MM/YY' }).press('Tab');
+  await page.locator('iframe').contentFrame().getByRole('textbox', { name: 'CVV' }).fill('123');
+  await page.getByRole('button', { name: 'Place order' }).click();
+  await page.locator('div').filter({ hasText: /^Thank you for your order$/ }).first().click();
+  await page.getByRole('button', { name: 'Continue shopping' }).click();
+  await page.getByRole('navigation').getByRole('link', { name: 'Products' }).click();
+
+  await page.goto('https://ilarionhalushka.github.io/jekyll-ecommerce-demo/');
+  await page.getByRole('navigation').getByRole('link', { name: 'Our Story' }).click();
+  await page.getByRole('navigation').getByRole('link', { name: 'Contact' }).click();
+  await page.getByRole('link', { name: 'shopping_cart' }).click();
+  await page.getByRole('button', { name: 'Back to store' }).click();
+  await page.getByRole('link', { name: 'shopping_cart' }).click();
+  await page.getByRole('button', { name: 'Remove item' }).click();
+  await page.getByRole('link', { name: 'shopping_cart' }).click();
+  await page.getByRole('navigation').getByRole('link', { name: 'Products' }).click();
+  await page.getByRole('textbox', { name: 'Full Name' }).click();
+  await page.getByRole('textbox', { name: 'Full Name' }).fill('Vladislav');
+  await page.getByRole('textbox', { name: 'Full Name' }).press('Tab');
+  await page.getByRole('textbox', { name: 'Email Address' }).fill('test@gmail.com');
+  await page.getByRole('textbox', { name: 'Message' }).click();
+  await page.getByRole('textbox', { name: 'Message' }).fill('123');
+  
+});
