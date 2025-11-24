@@ -11,7 +11,7 @@ test('test', async ({ page }) => {
   await page.getByRole('button', { name: 'Проверить наличие' }).click();
   await page.goBack();
   //шаг на страницу назад
-  // await page.getByRole('button', { name: 'Фильтры' }).waitFor();
+  //комментарий для тестирования гита
   await page.getByRole('button', { name: 'Фильтры' }).click();
   await page.getByRole('button', { name: 'Очистить фильтры' }).click();
 });
