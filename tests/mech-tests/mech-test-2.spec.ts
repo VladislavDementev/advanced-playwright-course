@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('mech-test-2', async ({ page }) => {
   await page.goto('https://mech.moscow/');
   await page.getByRole('button', { name: 'Поиск' }).click();
   await page.getByPlaceholder('Поиск').click();

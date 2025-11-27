@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('mech-test-3', async ({ page }) => {
   await page.goto('https://mech.moscow/');
   await page.getByRole('button', { name: 'Новинки' }).click();
   await page.getByRole('button', { name: 'Фильтры' }).click();
@@ -14,4 +14,5 @@ test('test', async ({ page }) => {
   //комментарий для тестирования гита
   await page.getByRole('button', { name: 'Фильтры' }).click();
   await page.getByRole('button', { name: 'Очистить фильтры' }).click();
+  await page.goBack();
 });
