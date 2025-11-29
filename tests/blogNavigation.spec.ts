@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('blog navigation', async ({ page }) => {
   await page.goto('https://ilarionhalushka.github.io/jekyll-ecommerce-demo/');
   await page.getByRole('navigation').getByRole('link', { name: 'Products' }).click();
   await page.getByRole('navigation').getByRole('link', { name: 'Our Story' }).click();
