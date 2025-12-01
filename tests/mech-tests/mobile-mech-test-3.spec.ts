@@ -1,6 +1,6 @@
 import { test, expect, devices } from '@playwright/test';
 
-test.use(devices['Pixel 7 landscape']);
+test.use(devices['Pixel 7 landscape, iPhone 14 Plus']);
 
 test('mech-test-3', async ({ page }) => {
   await page.goto('https://mech.moscow/');
